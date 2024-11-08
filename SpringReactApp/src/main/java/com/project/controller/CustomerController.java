@@ -21,6 +21,8 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+
+    //To add new Customer details in the Database
     @PostMapping("/save")
     public ResponseEntity<?> saveCustomer(@RequestBody CustomerSaveDTO customerSaveDTO){
 
@@ -34,6 +36,7 @@ public class CustomerController {
 
     }
 
+    // To get all the customer details
     @GetMapping("/all")
     public ResponseEntity<?> allCustomers(){
 
@@ -47,6 +50,7 @@ public class CustomerController {
 
     }
 
+    //To update the customer details using the customer id
     @PostMapping("/update/{id}")
     public ResponseEntity<?> updateCustomer(@RequestBody CustomerUpdateDTO customerUpdateDTO,
                                             @PathVariable(value = "id") Long id){
@@ -61,6 +65,7 @@ public class CustomerController {
 
     }
 
+    //To delete the customer details using the customer id
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteCustomer(@PathVariable(value = "id") Long id){
 
