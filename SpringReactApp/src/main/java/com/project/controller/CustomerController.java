@@ -6,8 +6,6 @@ import com.project.dto.CustomerUpdateDTO;
 import com.project.entity.Customer;
 import com.project.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +35,7 @@ public class CustomerController {
     }
 
     // To get all the customer details
-    @GetMapping("/all")
+    @GetMapping("/getAllCustomer")
     public ResponseEntity<?> allCustomers(){
 
         List<CustomerDTO> list = customerService.getAllCustomer();
@@ -51,7 +49,7 @@ public class CustomerController {
     }
 
     //To update the customer details using the customer id
-    @PostMapping("/update/{id}")
+    @PostMapping("/updateCustomer/{id}")
     public ResponseEntity<?> updateCustomer(@RequestBody CustomerUpdateDTO customerUpdateDTO,
                                             @PathVariable(value = "id") Long id){
 
@@ -66,7 +64,7 @@ public class CustomerController {
     }
 
     //To delete the customer details using the customer id
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteCustomer/{id}")
     public ResponseEntity<?> deleteCustomer(@PathVariable(value = "id") Long id){
 
         boolean customer = customerService.deleteCustomer(id);
